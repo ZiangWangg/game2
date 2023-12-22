@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #e6f7ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #rabbit {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: url('./rabbit.png'); /* Rabbit image */
+      background-size: cover;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+      /* Adjust styles for smaller screens */
+      #rabbit {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="rabbit"></div>
+
+  <script>
+    const rabbit = document.getElementById('rabbit');
+
+    rabbit.addEventListener('mouseover', () => {
+      moveRabbit();
+    });
+
+    function moveRabbit() {
+      const maxX = window.innerWidth - rabbit.offsetWidth;
+      const maxY = window.innerHeight - rabbit.offsetHeight;
+
+      const newX = Math.random() * maxX;
+      const newY = Math.random() * maxY;
+
+      rabbit.style.left = `${newX}px`;
+      rabbit.style.top = `${newY}px`;
+    }
+  </script>
+</body>
+</html>
